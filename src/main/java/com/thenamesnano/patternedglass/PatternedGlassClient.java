@@ -8,17 +8,15 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 
 public class PatternedGlassClient implements ClientModInitializer {
+	@Override
+	public void onInitializeClient() {
+		// Make sure that the glass renders translucent on the client
+		for (PatternedGlassBlock block : RegistryHandler.GLASS_BLOCK_LIST) {
+			BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
+		}
 
-    @Override
-    public void onInitializeClient() {
-
-        // Make sure that the glass renders translucent on the client
-        for (PatternedGlassBlock block : RegistryHandler.GLASS_BLOCK_LIST){
-            BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
-        }
-        for (PatternedGlassPaneBlock block : RegistryHandler.GLASS_PANE_BLOCK_LIST){
-            BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
-        }
-
-    }
+		for (PatternedGlassPaneBlock block : RegistryHandler.GLASS_PANE_BLOCK_LIST) {
+			BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getTranslucent());
+		}
+	}
 }

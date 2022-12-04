@@ -2,7 +2,10 @@ package com.thenamesnano.patternedglass.init.blocks;
 
 import com.thenamesnano.patternedglass.util.RegistryHandler;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Material;
+import net.minecraft.block.PaneBlock;
+import net.minecraft.block.Stainable;
 import net.minecraft.entity.EntityType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
@@ -10,40 +13,44 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 
 public class PatternedGlassPaneBlock extends PaneBlock implements Stainable {
+	private final DyeColor color;
+	private final String key;
 
-  private final DyeColor color;
-  public final String key;
+	private static boolean never(BlockState state, BlockView blockView, BlockPos pos) {
+		return false;
+	}
 
-  public PatternedGlassPaneBlock(String key, DyeColor color) {
-    super(FabricBlockSettings.of(Material.GLASS)
-            .strength(0.3F)
-            .sounds(BlockSoundGroup.GLASS)
-            .nonOpaque()
-            .allowsSpawning(PatternedGlassPaneBlock::never)
-            .suffocates(PatternedGlassPaneBlock::never)
-            .blockVision(PatternedGlassPaneBlock::never));
-    this.setDefaultState((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)this.stateManager
-            .getDefaultState())
-            .with(NORTH, false))
-            .with(EAST, false))
-            .with(SOUTH, false))
-            .with(WEST, false))
-            .with(WATERLOGGED, false));
-    this.color = color;
-    this.key = key;
-    RegistryHandler.GLASS_PANE_BLOCK_LIST.add(this);
-  }
+	private static boolean never(BlockState state, BlockView blockView, BlockPos pos, EntityType<?> entityType) {
+		return false;
+	}
 
-  private static boolean never(BlockState state, BlockView blockView, BlockPos pos) {
-    return false;
-  }
+	public PatternedGlassPaneBlock(String key, DyeColor color) {
+		super(FabricBlockSettings.of(Material.GLASS)
+				.strength(0.3F)
+				.sounds(BlockSoundGroup.GLASS)
+				.nonOpaque()
+				.allowsSpawning(PatternedGlassPaneBlock::never)
+				.suffocates(PatternedGlassPaneBlock::never)
+				.blockVision(PatternedGlassPaneBlock::never));
 
-  private static boolean never(BlockState state, BlockView blockView, BlockPos pos, EntityType<?> entityType) {
-    return false;
-  }
+		this.color = color;
+		this.key = key;
 
-  @Override
-  public DyeColor getColor() {
-    return this.color;
-  }
+		setDefaultState(stateManager.getDefaultState()
+				.with(NORTH, false)
+				.with(EAST, false)
+				.with(SOUTH, false)
+				.with(WEST, false)
+				.with(WATERLOGGED, false));
+		RegistryHandler.GLASS_PANE_BLOCK_LIST.add(this);
+	}
+
+	@Override
+	public DyeColor getColor() {
+		return color;
+	}
+
+	public String getKey() {
+		return key;
+	}
 }

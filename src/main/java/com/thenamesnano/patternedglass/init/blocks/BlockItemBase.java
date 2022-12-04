@@ -6,8 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 
 public class BlockItemBase extends BlockItem {
-
-    public BlockItemBase(Block block) {
-        super(block, new FabricItemSettings().group(PatternedGlass.PATTERNED_GLASS_BLOCKS));
-    }
+	public BlockItemBase(Block block) {
+		super(block, new FabricItemSettings().group(PatternedGlass.PATTERNED_GLASS_BLOCKS));
+	}
 }
