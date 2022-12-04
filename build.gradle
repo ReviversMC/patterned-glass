@@ -48,7 +48,13 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 
 	modImplementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    // Required Fabric API modules
+    modImplementation(fabricApi.module("fabric-api-base", project.fabric_api_version))
+    modImplementation(fabricApi.module("fabric-item-api-v1", project.fabric_api_version))
+    modImplementation(fabricApi.module("fabric-item-groups-v0", project.fabric_api_version))
+    modImplementation(fabricApi.module("fabric-blockrenderlayer-v1", project.fabric_api_version))
+    modImplementation(fabricApi.module("fabric-object-builder-api-v1", project.fabric_api_version))
 
 
     if (project.use_third_party_mods == "true") {
@@ -56,9 +62,11 @@ dependencies {
             modRuntimeOnly {
                 transitive = true
                 exclude module: "fabric-loader"
-                exclude module: "fabric-api"
             }
         }
+
+		// Use the full Fabric API while debugging, as transitive deps aren't always defined corretctly
+		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
     	modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
         modRuntimeOnly "maven.modrinth:lazydfu:${project.lazydfu_version}"

@@ -2,21 +2,20 @@
   "schemaVersion": 1,
   "id": "patternedglass",
   "version": "${version}",
-
   "name": "Patterned Glass",
   "description": "A mod that adds in patterned glass.",
   "authors": [
     "Nano (thenamesnano)",
-    "thefirethirteen"
+    "thefirethirteen",
+	"NebelNidas"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/patterned-glass",
-    "sources": ""
+	"issues": "https://github.com/ReviversMC/patterned-glass/issues",
+	"sources": "https://github.com/ReviversMC/patterned-glass"
   },
-
-  "license": "GNU GPLv3",
   "icon": "assets/patternedglass/icon.png",
-
+  "license": "GPL-3.0-or-later",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -26,15 +25,11 @@
       "com.thenamesnano.patternedglass.PatternedGlassClient"
     ]
   },
-  "mixins": [
-    "patternedglass.mixins.json"
-  ],
-
   "depends": {
-    "fabricloader": ">=0.14.0",
-    "fabric": "*",
-    "minecraft": "1.19.x",
-    "java": ">=17"
-  },
-  "suggests": {}
+	  "minecraft": ">=1.19",
+	  "fabric-item-api-v1": "*",
+	  "fabric-item-groups-v0": "*",
+	  "fabric-blockrenderlayer-v1": "*",
+	  "fabric-object-builder-api-v1": "*"
+  }
 }
