@@ -65,7 +65,7 @@ dependencies {
             }
         }
 
-		// Use the full Fabric API while debugging, as transitive deps aren't always defined corretctly
+		// Use the full Fabric API while debugging, as transitive deps aren't always defined correctly
 		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
     	modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
