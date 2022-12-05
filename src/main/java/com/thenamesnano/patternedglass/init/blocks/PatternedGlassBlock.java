@@ -1,6 +1,5 @@
 package com.thenamesnano.patternedglass.init.blocks;
 
-import com.thenamesnano.patternedglass.util.RegistryHandler;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractGlassBlock;
 import net.minecraft.block.Block;
@@ -21,6 +20,8 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
+
+import com.thenamesnano.patternedglass.util.RegistryHandler;
 
 public class PatternedGlassBlock extends AbstractGlassBlock implements Stainable {
 	public static final DirectionProperty FACING;

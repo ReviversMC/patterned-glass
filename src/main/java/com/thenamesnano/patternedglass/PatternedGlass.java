@@ -1,11 +1,12 @@
 package com.thenamesnano.patternedglass;
 
-import com.thenamesnano.patternedglass.util.RegistryHandler;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+
+import com.thenamesnano.patternedglass.util.RegistryHandler;
 
 public class PatternedGlass implements ModInitializer {
 	// Hardcoded Mod Identification

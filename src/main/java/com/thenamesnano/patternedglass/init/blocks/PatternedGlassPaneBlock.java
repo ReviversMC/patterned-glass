@@ -1,6 +1,5 @@
 package com.thenamesnano.patternedglass.init.blocks;
 
-import com.thenamesnano.patternedglass.util.RegistryHandler;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
@@ -11,6 +10,8 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
+
+import com.thenamesnano.patternedglass.util.RegistryHandler;
 
 public class PatternedGlassPaneBlock extends PaneBlock implements Stainable {
 	private final DyeColor color;

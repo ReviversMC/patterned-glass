@@ -3,14 +3,15 @@ package com.thenamesnano.patternedglass.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.thenamesnano.patternedglass.PatternedGlass;
-import com.thenamesnano.patternedglass.init.blocks.BlockItemBase;
-import com.thenamesnano.patternedglass.init.blocks.PatternedGlassBlock;
-import com.thenamesnano.patternedglass.init.blocks.PatternedGlassPaneBlock;
 import net.minecraft.block.Block;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import com.thenamesnano.patternedglass.PatternedGlass;
+import com.thenamesnano.patternedglass.init.blocks.BlockItemBase;
+import com.thenamesnano.patternedglass.init.blocks.PatternedGlassBlock;
+import com.thenamesnano.patternedglass.init.blocks.PatternedGlassPaneBlock;
 
 public class RegistryHandler {
 	public static final List<PatternedGlassBlock> GLASS_BLOCK_LIST = new ArrayList<PatternedGlassBlock>();
