@@ -26,6 +26,7 @@ bin/
 # Fabric
 run/
 remappedSrc/
+src/main/resources_generated/
 
 # Java
 hs_err_*.log

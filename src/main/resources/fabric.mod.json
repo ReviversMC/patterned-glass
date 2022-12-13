@@ -18,6 +18,9 @@
 	"license": "GPL-3.0-or-later",
 	"environment": "*",
 	"entrypoints": {
+		"fabric-datagen": [
+			"com.thenamesnano.patternedglass.datagen.PatternedGlassDatagen"
+		],
 		"main": [
 			"com.thenamesnano.patternedglass.PatternedGlass"
 		],

@@ -55,6 +55,7 @@ dependencies {
     modImplementation(fabricApi.module("fabric-item-groups-v0", project.fabric_api_version))
     modImplementation(fabricApi.module("fabric-blockrenderlayer-v1", project.fabric_api_version))
     modImplementation(fabricApi.module("fabric-object-builder-api-v1", project.fabric_api_version))
+    modImplementation(fabricApi.module("fabric-data-generation-api-v1", project.fabric_api_version))
 
 
     if (project.use_third_party_mods == "true") {
@@ -80,6 +81,32 @@ dependencies {
     }
 }
 
+loom {
+    runs {
+        // This adds a new Gradle task that runs the Datagen API: `./gradlew runDatagen`
+        datagen {
+            inherit server
+
+            name "Data Generation"
+            runDir "build/datagen"
+
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/resources_generated")}"
+        }
+    }
+}
+
+
+// Add previously datagenned files into the JAR
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+				'src/main/resources_generated'
+            ]
+        }
+    }
+}
 
 processResources {
 	inputs.property "version", project.version
