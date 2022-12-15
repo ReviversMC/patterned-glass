@@ -52,7 +52,7 @@ dependencies {
     // Required Fabric API modules
     modImplementation(fabricApi.module("fabric-api-base", project.fabric_api_version))
     modImplementation(fabricApi.module("fabric-item-api-v1", project.fabric_api_version))
-    modImplementation(fabricApi.module("fabric-item-groups-v0", project.fabric_api_version))
+    modImplementation(fabricApi.module("fabric-item-group-api-v1", project.fabric_api_version))
     modImplementation(fabricApi.module("fabric-blockrenderlayer-v1", project.fabric_api_version))
     modImplementation(fabricApi.module("fabric-object-builder-api-v1", project.fabric_api_version))
     modImplementation(fabricApi.module("fabric-data-generation-api-v1", project.fabric_api_version))

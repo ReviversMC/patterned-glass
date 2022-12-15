@@ -1,6 +1,6 @@
 {
   "parent": "patternedglass:block/template_patterned_glass",
   "textures": {
-    "pattern": "patternedglass:blocks/pink_patterned_glass"
+    "pattern": "patternedglass:block/pink_patterned_glass"
   }
 }

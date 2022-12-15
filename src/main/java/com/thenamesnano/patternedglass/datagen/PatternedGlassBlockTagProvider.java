@@ -2,42 +2,44 @@ package com.thenamesnano.patternedglass.datagen;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import com.thenamesnano.patternedglass.PatternedGlass;
 import com.thenamesnano.patternedglass.util.RegistryHandler;
 
-public class PatternedGlassBlockTagProvider extends FabricTagProvider.BlockTagProvider {
-	public PatternedGlassBlockTagProvider(FabricDataGenerator dataGenerator) {
-		super(dataGenerator);
+public class PatternedGlassBlockTagProvider extends FabricTagProvider<Block> {
+	public PatternedGlassBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+		super(output, RegistryKeys.BLOCK, registriesFuture);
 	}
 
 	@Override
-	protected void generateTags() {
-		List<FabricTagBuilder<Block>> glassBlockTagBuilders = Arrays.asList(
-				getOrCreateTagBuilder(BlockTags.IMPERMEABLE),
-				getOrCreateTagBuilder(TagKey.of(Registry.BLOCK_KEY, new Identifier(PatternedGlass.MOD_ID, "glass_blocks"))),
-				getOrCreateTagBuilder(TagKey.of(Registry.BLOCK_KEY, new Identifier("c:glass"))));
+	protected void configure(RegistryWrapper.WrapperLookup lookup) {
+		List<FabricTagBuilder> glassBlockTagBuilders = Arrays.asList(
+			getOrCreateTagBuilder(BlockTags.IMPERMEABLE),
+			getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier(PatternedGlass.MOD_ID, "glass_blocks"))),
+			getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c:glass"))));
 
-		List<FabricTagBuilder<Block>> glassPaneTagBuilders = Arrays.asList(
-				getOrCreateTagBuilder(TagKey.of(Registry.BLOCK_KEY, new Identifier(PatternedGlass.MOD_ID, "glass_panes"))),
-				getOrCreateTagBuilder(TagKey.of(Registry.BLOCK_KEY, new Identifier("c:glass_panes"))));
+		List<FabricTagBuilder> glassPaneTagBuilders = Arrays.asList(
+			getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier(PatternedGlass.MOD_ID, "glass_panes"))),
+			getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c:glass_panes"))));
 
 		for (Block block: RegistryHandler.GLASS_BLOCK_LIST) {
-			for (FabricTagBuilder<Block> tagBuilder : glassBlockTagBuilders) {
+			for (FabricTagBuilder tagBuilder : glassBlockTagBuilders) {
 				tagBuilder.add(block);
 			}
 		}
 
 		for (Block block: RegistryHandler.GLASS_PANE_BLOCK_LIST) {
-			for (FabricTagBuilder<Block> tagBuilder : glassPaneTagBuilders) {
+			for (FabricTagBuilder tagBuilder : glassPaneTagBuilders) {
 				tagBuilder.add(block);
 			}
 		}

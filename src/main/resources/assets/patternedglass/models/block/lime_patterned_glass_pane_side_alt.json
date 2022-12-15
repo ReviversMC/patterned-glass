@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
   "textures": {
-    "pane": "patternedglass:blocks/lime_patterned_glass",
-    "edge": "patternedglass:blocks/lime_patterned_glass_pane_top"
+    "pane": "patternedglass:block/lime_patterned_glass",
+    "edge": "patternedglass:block/lime_patterned_glass_pane_top"
   }
 }

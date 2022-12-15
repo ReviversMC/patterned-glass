@@ -31,7 +31,7 @@
 	"depends": {
 		"minecraft": ">=1.19",
 		"fabric-item-api-v1": "*",
-		"fabric-item-groups-v0": "*",
+		"fabric-item-group-api-v1": "*",
 		"fabric-blockrenderlayer-v1": "*",
 		"fabric-object-builder-api-v1": "*"
 	}

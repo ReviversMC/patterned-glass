@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "patternedglass:blocks/red_patterned_glass"
+    "layer0": "patternedglass:block/red_patterned_glass"
   }
 }
