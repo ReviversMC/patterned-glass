@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Block;
@@ -25,12 +24,12 @@ public class PatternedGlassItemTagProvider extends FabricTagProvider<Item> {
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup arg) {
 		List<FabricTagBuilder> glassBlockTagBuilders = Arrays.asList(
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier(PatternedGlass.MOD_ID, "glass_blocks"))),
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c:glass"))));
+				getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier(PatternedGlass.MOD_ID, "glass_blocks"))),
+				getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c:glass"))));
 
 		List<FabricTagBuilder> glassPaneTagBuilders = Arrays.asList(
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier(PatternedGlass.MOD_ID, "glass_panes"))),
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c:glass_panes"))));
+				getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier(PatternedGlass.MOD_ID, "glass_panes"))),
+				getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c:glass_panes"))));
 
 		for (Block block: RegistryHandler.GLASS_BLOCK_LIST) {
 			for (FabricTagBuilder tagBuilder : glassBlockTagBuilders) {

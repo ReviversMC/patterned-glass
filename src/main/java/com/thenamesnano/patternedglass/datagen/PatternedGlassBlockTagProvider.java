@@ -24,13 +24,13 @@ public class PatternedGlassBlockTagProvider extends FabricTagProvider<Block> {
 	@Override
 	protected void configure(RegistryWrapper.WrapperLookup lookup) {
 		List<FabricTagBuilder> glassBlockTagBuilders = Arrays.asList(
-			getOrCreateTagBuilder(BlockTags.IMPERMEABLE),
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier(PatternedGlass.MOD_ID, "glass_blocks"))),
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c:glass"))));
+				getOrCreateTagBuilder(BlockTags.IMPERMEABLE),
+				getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier(PatternedGlass.MOD_ID, "glass_blocks"))),
+				getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c:glass"))));
 
 		List<FabricTagBuilder> glassPaneTagBuilders = Arrays.asList(
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier(PatternedGlass.MOD_ID, "glass_panes"))),
-			getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c:glass_panes"))));
+				getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier(PatternedGlass.MOD_ID, "glass_panes"))),
+				getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c:glass_panes"))));
 
 		for (Block block: RegistryHandler.GLASS_BLOCK_LIST) {
 			for (FabricTagBuilder tagBuilder : glassBlockTagBuilders) {

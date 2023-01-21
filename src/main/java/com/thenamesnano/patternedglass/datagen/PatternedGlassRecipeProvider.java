@@ -2,7 +2,6 @@ package com.thenamesnano.patternedglass.datagen;
 
 import java.util.function.Consumer;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
@@ -16,7 +15,6 @@ import com.thenamesnano.patternedglass.PatternedGlass;
 import com.thenamesnano.patternedglass.util.RegistryHandler;
 
 public class PatternedGlassRecipeProvider extends FabricRecipeProvider {
-
 	public PatternedGlassRecipeProvider(FabricDataOutput output) {
 		super(output);
 	}
