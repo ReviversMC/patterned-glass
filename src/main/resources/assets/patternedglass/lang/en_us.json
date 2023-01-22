@@ -1,7 +1,5 @@
 {
-  "config.patternedglass.modEnabled": "Mod Enabled",
   "itemGroup.patternedglass.blocks": "Patterned Glass",
-  "block.patternedglass.test_block": "Test Block",
   "block.patternedglass.white_patterned_glass": "White Patterned Glass",
   "block.patternedglass.orange_patterned_glass": "Orange Patterned Glass",
   "block.patternedglass.magenta_patterned_glass": "Magenta Patterned Glass",
