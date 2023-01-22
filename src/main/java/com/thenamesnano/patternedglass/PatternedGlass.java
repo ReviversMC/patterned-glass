@@ -13,7 +13,9 @@ public class PatternedGlass implements ModInitializer {
 	public static final String MOD_ID = "patternedglass";
 
 	// ItemGroup Declaration
-	public static final ItemGroup PATTERNED_GLASS_BLOCKS = FabricItemGroup.builder(new Identifier(MOD_ID, "blocks")).icon(() -> new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.asItem())).build();
+	public static final ItemGroup PATTERNED_GLASS_BLOCKS = FabricItemGroup.builder(new Identifier(MOD_ID, "blocks"))
+			.icon(() -> new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.asItem()))
+			.build();
 
 	@Override
 	public void onInitialize() {

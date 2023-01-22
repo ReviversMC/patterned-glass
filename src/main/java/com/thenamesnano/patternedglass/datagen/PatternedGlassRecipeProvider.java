@@ -9,9 +9,7 @@ import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.util.Identifier;
 
-import com.thenamesnano.patternedglass.PatternedGlass;
 import com.thenamesnano.patternedglass.util.RegistryHandler;
 
 public class PatternedGlassRecipeProvider extends FabricRecipeProvider {
@@ -71,11 +69,6 @@ public class PatternedGlassRecipeProvider extends FabricRecipeProvider {
 		offerPatternedGlassPaneDyeingRecipe(exporter, RegistryHandler.GREEN_PATTERNED_GLASS_PANE, Blocks.GREEN_GLAZED_TERRACOTTA);
 		offerPatternedGlassPaneDyeingRecipe(exporter, RegistryHandler.RED_PATTERNED_GLASS_PANE, Blocks.RED_GLAZED_TERRACOTTA);
 		offerPatternedGlassPaneDyeingRecipe(exporter, RegistryHandler.BLACK_PATTERNED_GLASS_PANE, Blocks.BLACK_GLAZED_TERRACOTTA);
-	}
-
-	@Override
-	protected Identifier getRecipeIdentifier(Identifier identifier) {
-		return new Identifier(PatternedGlass.MOD_ID, identifier.getPath());
 	}
 
 	private static void offerPatternedGlassDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {

@@ -16,9 +16,9 @@ import net.minecraft.util.Identifier;
 import com.thenamesnano.patternedglass.PatternedGlass;
 import com.thenamesnano.patternedglass.util.RegistryHandler;
 
-public class PatternedGlassBlockTagProvider extends FabricTagProvider<Block> {
+public class PatternedGlassBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 	public PatternedGlassBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-		super(output, RegistryKeys.BLOCK, registriesFuture);
+		super(output, registriesFuture);
 	}
 
 	@Override
