@@ -7,7 +7,8 @@
 	"authors": [
 		"Nano (thenamesnano)",
 		"thefirethirteen",
-		"NebelNidas"
+		"NebelNidas",
+		"TacoMonkey"
 	],
 	"contact": {
 		"homepage": "https://www.curseforge.com/minecraft/mc-mods/patterned-glass",
@@ -29,9 +30,8 @@
 		]
 	},
 	"depends": {
-		"minecraft": ">=1.19",
-		"fabric-item-api-v1": "*",
-		"fabric-item-groups-v0": "*",
+		"minecraft": ">=1.19.3",
+		"fabric-item-group-api-v1": "*",
 		"fabric-blockrenderlayer-v1": "*",
 		"fabric-object-builder-api-v1": "*"
 	}

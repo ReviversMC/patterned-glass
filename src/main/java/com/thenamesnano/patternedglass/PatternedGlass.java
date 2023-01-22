@@ -1,7 +1,7 @@
 package com.thenamesnano.patternedglass;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -13,8 +13,9 @@ public class PatternedGlass implements ModInitializer {
 	public static final String MOD_ID = "patternedglass";
 
 	// ItemGroup Declaration
-	public static final ItemGroup PATTERNED_GLASS_BLOCKS = FabricItemGroupBuilder.build(new Identifier(MOD_ID, "blocks"),
-			() -> new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.asItem()));
+	public static final ItemGroup PATTERNED_GLASS_BLOCKS = FabricItemGroup.builder(new Identifier(MOD_ID, "blocks"))
+			.icon(() -> new ItemStack(RegistryHandler.BLACK_PATTERNED_GLASS.asItem()))
+			.build();
 
 	@Override
 	public void onInitialize() {

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_glass_pane_noside",
   "textures": {
-    "pane": "patternedglass:blocks/black_patterned_glass"
+    "pane": "patternedglass:block/black_patterned_glass"
   }
 }

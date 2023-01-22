@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import com.thenamesnano.patternedglass.PatternedGlass;
 import com.thenamesnano.patternedglass.init.blocks.BlockItemBase;
@@ -55,13 +56,13 @@ public class RegistryHandler {
 
 	public static void init() {
 		for (PatternedGlassBlock block : GLASS_BLOCK_LIST) {
-			Registry.register(Registry.BLOCK, new Identifier(PatternedGlass.MOD_ID, block.getKey()), block);
-			Registry.register(Registry.ITEM, new Identifier(PatternedGlass.MOD_ID, block.getKey()), new BlockItemBase(block));
+			Registry.register(Registries.BLOCK, new Identifier(PatternedGlass.MOD_ID, block.getKey()), block);
+			Registry.register(Registries.ITEM, new Identifier(PatternedGlass.MOD_ID, block.getKey()), new BlockItemBase(block));
 		}
 
 		for (PatternedGlassPaneBlock block : GLASS_PANE_BLOCK_LIST) {
-			Registry.register(Registry.BLOCK, new Identifier(PatternedGlass.MOD_ID, block.getKey()), block);
-			Registry.register(Registry.ITEM, new Identifier(PatternedGlass.MOD_ID, block.getKey()), new BlockItemBase(block));
+			Registry.register(Registries.BLOCK, new Identifier(PatternedGlass.MOD_ID, block.getKey()), block);
+			Registry.register(Registries.ITEM, new Identifier(PatternedGlass.MOD_ID, block.getKey()), new BlockItemBase(block));
 		}
 	}
 }

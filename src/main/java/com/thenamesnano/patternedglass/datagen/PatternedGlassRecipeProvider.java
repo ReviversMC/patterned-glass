@@ -2,29 +2,23 @@ package com.thenamesnano.patternedglass.datagen;
 
 import java.util.function.Consumer;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.util.Identifier;
+import net.minecraft.recipe.book.RecipeCategory;
 
-import com.thenamesnano.patternedglass.PatternedGlass;
 import com.thenamesnano.patternedglass.util.RegistryHandler;
 
 public class PatternedGlassRecipeProvider extends FabricRecipeProvider {
-	public PatternedGlassRecipeProvider(FabricDataGenerator dataGenerator) {
-		super(dataGenerator);
+	public PatternedGlassRecipeProvider(FabricDataOutput output) {
+		super(output);
 	}
 
 	@Override
-	protected Identifier getRecipeIdentifier(Identifier identifier) {
-		return new Identifier(PatternedGlass.MOD_ID, identifier.getPath());
-	}
-
-	@Override
-	protected void generateRecipes(Consumer<RecipeJsonProvider> exporter) {
+	public void generate(Consumer<RecipeJsonProvider> exporter) {
 		offerPatternedGlassDyeingRecipe(exporter, RegistryHandler.WHITE_PATTERNED_GLASS, Blocks.WHITE_GLAZED_TERRACOTTA);
 		offerPatternedGlassDyeingRecipe(exporter, RegistryHandler.ORANGE_PATTERNED_GLASS, Blocks.ORANGE_GLAZED_TERRACOTTA);
 		offerPatternedGlassDyeingRecipe(exporter, RegistryHandler.MAGENTA_PATTERNED_GLASS, Blocks.MAGENTA_GLAZED_TERRACOTTA);
@@ -78,7 +72,7 @@ public class PatternedGlassRecipeProvider extends FabricRecipeProvider {
 	}
 
 	private static void offerPatternedGlassDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-		ShapedRecipeJsonBuilder.create(output, 8)
+		ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8)
 				.input('#', Blocks.GLASS)
 				.input('X', input)
 				.pattern("###")
@@ -91,7 +85,7 @@ public class PatternedGlassRecipeProvider extends FabricRecipeProvider {
 	}
 
 	private static void offerPatternedGlassPaneRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-		ShapedRecipeJsonBuilder.create(output, 16)
+		ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 16)
 				.input('#', input)
 				.pattern("###")
 				.pattern("###")
@@ -101,7 +95,7 @@ public class PatternedGlassRecipeProvider extends FabricRecipeProvider {
 	}
 
 	private static void offerPatternedGlassPaneDyeingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
-		ShapedRecipeJsonBuilder.create(output, 8)
+		ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 8)
 				.input('#', Blocks.GLASS_PANE)
 				.input('$', input)
 				.pattern("###")

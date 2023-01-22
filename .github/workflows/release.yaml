@@ -37,7 +37,7 @@ jobs:
       - name: Build the mod
         run: ./gradlew build --stacktrace -x runDatagen
 
-      - name: Publish 1.17 version
+      - name: Publish mod
         uses: Kir-Antipov/mc-publish@v3.2
         with:
           curseforge-id: 495731
@@ -47,17 +47,15 @@ jobs:
 
           files-primary: build/libs/!(*-@(dev|sources)).jar
 
-          name: 3.1.0 for MC 1.19 to 1.19.2
-          version: 3.1.0+1.19
+          name: 3.1.0 for MC 1.19.3
+          version: 3.1.0+1.19.3
           version-type: release
 
           loaders: |
             fabric
 
           game-versions: |
-            1.19
-            1.19.1
-            1.19.2
+            1.19.3
 
           dependencies: |
             fabric-api       | depends
