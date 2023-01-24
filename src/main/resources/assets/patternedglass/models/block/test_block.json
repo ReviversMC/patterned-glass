@@ -1,6 +1,6 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "patternedglass:block/debug"
-  }
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "patternedglass:block/debug"
+	}
 }

@@ -1,19 +1,19 @@
 {
-  "variants": {
-    "facing=east": {
-      "model": "patternedglass:block/cyan_patterned_glass",
-      "y": 270
-    },
-    "facing=north": {
-      "model": "patternedglass:block/cyan_patterned_glass",
-      "y": 180
-    },
-    "facing=south": {
-      "model": "patternedglass:block/cyan_patterned_glass"
-    },
-    "facing=west": {
-      "model": "patternedglass:block/cyan_patterned_glass",
-      "y": 90
-    }
-  }
+	"variants": {
+		"facing=east": {
+			"model": "patternedglass:block/cyan_patterned_glass",
+			"y": 270
+		},
+		"facing=north": {
+			"model": "patternedglass:block/cyan_patterned_glass",
+			"y": 180
+		},
+		"facing=south": {
+			"model": "patternedglass:block/cyan_patterned_glass"
+		},
+		"facing=west": {
+			"model": "patternedglass:block/cyan_patterned_glass",
+			"y": 90
+		}
+	}
 }
