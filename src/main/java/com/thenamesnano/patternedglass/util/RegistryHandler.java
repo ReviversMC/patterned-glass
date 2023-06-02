@@ -3,16 +3,21 @@ package com.thenamesnano.patternedglass.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
-import com.thenamesnano.patternedglass.PatternedGlass;
 import com.thenamesnano.patternedglass.init.blocks.BlockItemBase;
 import com.thenamesnano.patternedglass.init.blocks.PatternedGlassBlock;
 import com.thenamesnano.patternedglass.init.blocks.PatternedGlassPaneBlock;
+
+import static com.thenamesnano.patternedglass.PatternedGlass.PATTERNED_GLASS_BLOCKS;
+import static com.thenamesnano.patternedglass.PatternedGlass.MOD_ID;
 
 public class RegistryHandler {
 	public static final List<PatternedGlassBlock> GLASS_BLOCK_LIST = new ArrayList<PatternedGlassBlock>();
@@ -55,14 +60,20 @@ public class RegistryHandler {
 	public static final Block BLACK_PATTERNED_GLASS_PANE = new PatternedGlassPaneBlock("black_patterned_glass_pane", DyeColor.BLACK);
 
 	public static void init() {
+		Registry.register(Registries.ITEM_GROUP, PATTERNED_GLASS_BLOCKS, FabricItemGroup.builder()
+			.displayName(Text.translatable("itemGroup." + MOD_ID + ".blocks"))
+			.icon(() -> new ItemStack(BLACK_PATTERNED_GLASS.asItem()))
+			.build()
+		);
+
 		for (PatternedGlassBlock block : GLASS_BLOCK_LIST) {
-			Registry.register(Registries.BLOCK, new Identifier(PatternedGlass.MOD_ID, block.getKey()), block);
-			Registry.register(Registries.ITEM, new Identifier(PatternedGlass.MOD_ID, block.getKey()), new BlockItemBase(block));
+			Registry.register(Registries.BLOCK, new Identifier(MOD_ID, block.getKey()), block);
+			Registry.register(Registries.ITEM, new Identifier(MOD_ID, block.getKey()), new BlockItemBase(block));
 		}
 
 		for (PatternedGlassPaneBlock block : GLASS_PANE_BLOCK_LIST) {
-			Registry.register(Registries.BLOCK, new Identifier(PatternedGlass.MOD_ID, block.getKey()), block);
-			Registry.register(Registries.ITEM, new Identifier(PatternedGlass.MOD_ID, block.getKey()), new BlockItemBase(block));
+			Registry.register(Registries.BLOCK, new Identifier(MOD_ID, block.getKey()), block);
+			Registry.register(Registries.ITEM, new Identifier(MOD_ID, block.getKey()), new BlockItemBase(block));
 		}
 	}
 }
