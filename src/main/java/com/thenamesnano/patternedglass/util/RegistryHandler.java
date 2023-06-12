@@ -1,5 +1,8 @@
 package com.thenamesnano.patternedglass.util;
 
+import static com.thenamesnano.patternedglass.PatternedGlass.MOD_ID;
+import static com.thenamesnano.patternedglass.PatternedGlass.PATTERNED_GLASS_BLOCKS;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +18,6 @@ import net.minecraft.util.Identifier;
 import com.thenamesnano.patternedglass.init.blocks.BlockItemBase;
 import com.thenamesnano.patternedglass.init.blocks.PatternedGlassBlock;
 import com.thenamesnano.patternedglass.init.blocks.PatternedGlassPaneBlock;
-
-import static com.thenamesnano.patternedglass.PatternedGlass.PATTERNED_GLASS_BLOCKS;
-import static com.thenamesnano.patternedglass.PatternedGlass.MOD_ID;
 
 public class RegistryHandler {
 	public static final List<PatternedGlassBlock> GLASS_BLOCK_LIST = new ArrayList<PatternedGlassBlock>();
@@ -61,9 +61,9 @@ public class RegistryHandler {
 
 	public static void init() {
 		Registry.register(Registries.ITEM_GROUP, PATTERNED_GLASS_BLOCKS, FabricItemGroup.builder()
-			.displayName(Text.translatable("itemGroup." + MOD_ID + ".blocks"))
-			.icon(() -> new ItemStack(BLACK_PATTERNED_GLASS.asItem()))
-			.build()
+				.displayName(Text.translatable("itemGroup." + MOD_ID + ".blocks"))
+				.icon(() -> new ItemStack(BLACK_PATTERNED_GLASS.asItem()))
+				.build()
 		);
 
 		for (PatternedGlassBlock block : GLASS_BLOCK_LIST) {
