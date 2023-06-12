@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractGlassBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Material;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Stainable;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.ItemPlacementContext;
@@ -24,13 +24,14 @@ public class PatternedGlassBlock extends AbstractGlassBlock implements Stainable
 	private final String key;
 
 	public PatternedGlassBlock(String key, DyeColor color) {
-		super(FabricBlockSettings.of(Material.GLASS)
+		super(FabricBlockSettings.copyOf(Blocks.GLASS)
 				.strength(0.3F)
 				.sounds(BlockSoundGroup.GLASS)
 				.nonOpaque()
 				.allowsSpawning((state, view, pos, entity) -> false)
 				.suffocates((state, view, pos) -> false)
-				.blockVision((state, view, pos) -> false));
+				.blockVision((state, view, pos) -> false)
+				.pistonBehavior(PistonBehavior.PUSH_ONLY));
 
 		this.color = color;
 		this.key = key;
@@ -48,7 +49,6 @@ public class PatternedGlassBlock extends AbstractGlassBlock implements Stainable
 		return getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
 	}
 
-	@Override
 	public PistonBehavior getPistonBehavior(BlockState state) {
 		return PistonBehavior.PUSH_ONLY;
 	}

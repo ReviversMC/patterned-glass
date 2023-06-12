@@ -1,7 +1,7 @@
 package com.thenamesnano.patternedglass.init.blocks;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Material;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.PaneBlock;
 import net.minecraft.block.Stainable;
 import net.minecraft.sound.BlockSoundGroup;
@@ -17,7 +17,7 @@ public class PatternedGlassPaneBlock extends PaneBlock implements Stainable {
 	private final String key;
 
 	public PatternedGlassPaneBlock(String key, DyeColor color) {
-		super(FabricBlockSettings.of(Material.GLASS)
+		super(FabricBlockSettings.copyOf(Blocks.GLASS)
 				.strength(0.3F)
 				.sounds(BlockSoundGroup.GLASS)
 				.nonOpaque()
